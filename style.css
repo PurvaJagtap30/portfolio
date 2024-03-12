@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-{
+body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -206,9 +206,14 @@ body {
     margin-bottom: 1rem;
 }
 
-.workeduc-content .year {
-    color: var(darkblue);
+.workeduc-content {
+    color: var(rgb(211, 147, 147));
 }
+
+.span-year{
+    color: #ff0000;
+}
+
 
 
 
