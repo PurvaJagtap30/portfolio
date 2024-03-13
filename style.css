@@ -15,7 +15,7 @@ body{
     --second-txt-color: #555;
     --white-color: #fff;
     --cover-color: linear-gradient(45deg, #90EE90, #006e9a);
-    --pages-color: linear-gradient(90deg, #fff, #ddd);
+    --pages-color: linear-gradient(50deg, #fff, #ddd);
     --border: .120rem solid #90EE90;
     --box-shadow: 0 0 .6rem rgba(0, 0, 0, .2);
 }
@@ -133,7 +133,7 @@ body {
 
 .profile-page p {
     text-align: justify;
-    font-size: 1.2rem;  
+    font-size: 1.0rem;  
 }
 
 .profile-page .btn-box {
@@ -146,11 +146,11 @@ body {
     align-items: center;
     width: 9.5rem;
     height: 3rem;
-    background: var(--main-color);
-    border: var(--border);
+    background: rgb(114, 180, 230);
+    border: rgb(114, 180, 230);
     border-radius: .3rem;
     font-size: 1.2rem;
-    color: var(rgb(44, 113, 217));
+    color: var(--white-color);
     font-weight: 500;
     margin: 0 1rem;
     transition: .5s;
@@ -158,12 +158,12 @@ body {
 
 .btn:hover  {
     background: transparent;
-    color: var(rgb(44, 113, 217));
+    color: rgb(114, 180, 230);
 }
 
 .btn-box .btn:nth-child(2) {
     background: transparent;
-    color: var(rgb(44, 113, 217));
+    color: var(--main-color);
 }
 
 .btn-box .btn:nth-child(2):hover {
@@ -174,9 +174,14 @@ body {
 .book-page.page-right {
     position: absolute;
     right: 0;
-    margin-left: 25px;
-    margin-right: -59px;
+    margin-left: 30px;
+    margin-right: -60px;
     transform-style: preserve-3d;
+    transform-origin: left;
+}
+
+.book-page.page-right.turn {
+    transform: rotateY(-180deg);
 }
 
 .book-page .page-front,
@@ -184,13 +189,13 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 85%;
+    width: 90%;
     height: 100%;
     background: var(--pages-color);
     padding-right: 1.5rem;
     padding-left: 2rem;
     text-align: justify;
-    font-size : 18.5px;
+    font-size : 15.8px;
 }
 
 .book-page .page-front {
@@ -206,24 +211,111 @@ body {
     margin-bottom: 1rem;
 }
 
+.workeduc-box {
+    border-left: var(--border);
+    border-color: rgb(44, 113, 217);
+}
+
+.workeduc-box .workeduc-content  {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 1.2rem;
+    
+}
+
+.workeduc-box .workeduc-content::before  { 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -0.65rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: rgb(114, 180, 230);
+    border-radius: 50%;
+
+}
+
 .workeduc-content {
-    color: var(rgb(211, 147, 147));
+    color: var(rgb(114, 180, 230));
 }
 
 .span-year{
-    color: #ff0000;
+    font-size: 18px;
+    color: rgb(114, 180, 230);
 }
 
+.workeduc-content .span-year i{
+    margin-right: .4rem;
+}
 
+.number-page {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
+.nextprev-btn { 
+    position: absolute;
+    bottom: .9rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--second-txt-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
 
+.nextprev-btn:hover {
+    color:var(--main-color)
+}
 
+.nextprev-btn.back {
+    left: 1.5rem;
+}
 
+.services-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
 
+.services-box .services-content {
+    flex: 1 1 10rem;
+    border: var(--border);
+    border-color: rgb(114, 180, 230);
+    border-radius: .8rem;
+    border-width: 0.2rem;
+    padding: .9rem .6rem 1.3rem;
+    text-align: center;
+    transition: .3s ease;
+}
 
+.services-box .services-content:hover {
+    box-shadow: var(--box-shadow);
+}
 
+.services-content i {
+    font-size: 2.8rem;
+    color: rgb(32, 129, 203);
+}
 
+.services-content h3 {
+    font-size: 1.2rem;
+}
 
+.services-content p {
+    margin: .2rem 0 .8rem;
+}
+
+.services-content .btn {
+    width: 8rem;
+    height: 2.7rem;
+}
 
 
 
