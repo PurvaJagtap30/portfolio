@@ -27,7 +27,7 @@ body {
     min-height: 50vh;
     background: var(--bg-color);  
     color: var(--text-color);                                                                                                        
-                                                                                                                                                                                                                                                                                    
+    overflow: hidden;                                                                                                                                                                                                                                                                            
 }
 
 .wrapper {
@@ -35,9 +35,20 @@ body {
     width: 65rem;
     height: 50rem;
     padding: 1.9rem;
-    
+    perspective: 250rem;
+    animation: show-animate 2s forwards;
 }
 
+@keyframes show-animate {
+    0%,30% {
+        opacity: 0;
+        transform: rotate(-20deg);
+    } 
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    } 
+}
 .cover {
     position: absolute;
     top: 0;
@@ -55,6 +66,12 @@ body {
 .cover.cover-left {
     z-index: -1;
 }
+
+.cover.cover-right {
+    z-index: 100;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
 .cover.cover-right.turn {
     transform: rotateY(180deg);
 }
@@ -63,7 +80,8 @@ body {
     position: relative;
     width: 100%;
     height: 90%;
-
+    display: flex;
+    perspective: 250rem;
 }
 
 .book .book-page {
@@ -74,6 +92,10 @@ body {
     box-shadow: 0 0 .5rem rgba(0, 0, 0, .1);
     display: flex;
     padding: 1.9rem;
+}
+
+.book-page.page-left {
+    box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
 }
 
 .profile-page {
@@ -99,7 +121,7 @@ body {
 
 .profile-page h3 {
     font-size: 1.7rem;
-    color: rgb(44, 113, 217);
+    color: rgb(67, 131, 228);
     line-height: 0;
 }
 
@@ -119,7 +141,7 @@ body {
     border: var(--border);
     border-radius: 40%;
     font-size: 1.4rem;
-    color: var(rgb(44, 113, 217));
+    color: rgb(67, 131, 228);
     margin: 0.2rem;
     transition: .5s;
     line-height: 0;
@@ -163,11 +185,11 @@ body {
 
 .btn-box .btn:nth-child(2) {
     background: transparent;
-    color: var(--main-color);
+    color: rgb(114, 180, 230);
 }
 
 .btn-box .btn:nth-child(2):hover {
-    background: var(--main-color);
+    background: rgb(114, 180, 230);
     color: var(--white-color);
 }
 
@@ -178,6 +200,7 @@ body {
     margin-right: -60px;
     transform-style: preserve-3d;
     transform-origin: left;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .book-page.page-right.turn {
@@ -421,6 +444,81 @@ body {
 }
 
 .portfolio-box .btn-box .btn {
-    margin: 0 1.15rem;
+    margin: 0 1.15rem;  
+}
+
+.contact-box {
+    text-align: center;
+}
+
+.contact-box .field {
+    width: 95%;
+    background: transparent;
+    border:var(--border);
+    border-radius: .8rem;
+    padding: .6rem;
+    line-height: 2;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.2rem;
+}
+
+.contact-box .field::placeholder {
+    color: var(--text-color);
+}
+
+.contact-box textarea {
+    resize: none;
+    height: 15rem;
+}
+
+.contact-box .btn {
+    cursor: pointer;
+}
+
+.back-profile {
+    position: absolute;
+    bottom: 1.2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: var(--border);
+    border-color: rgb(52, 155, 234);
+    border-radius: .3rem;
+    font-size: 1.1rem;
+    color:rgb(52, 155, 234);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+.back-profile:hover {
+   
+    color: var(--white-color);
+    background: rgb(52, 155, 234);
     
 }
+
+.back-profile p {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(.5);
+    font-size: 1rem;
+    color: rgb(52, 155, 234);
+    opacity: 0;
+    transition: .5s;
+}
+
+.back-profile:hover p {
+    opacity: 5;
+    transform: translateX(-50%) scale(1);
+    top: -2.8rem;
+}
+
+
+
+
+
